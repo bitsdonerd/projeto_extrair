@@ -36,19 +36,19 @@ Localiza e clica no botão de download de arquivos .pdf
 Evita duplicatas verificando arquivos existentes
 
 ## 🧪 Futuras Melhorias
-- [] Adicionar suporte para múltiplos anos em um único run
+- Adicionar suporte para múltiplos anos em um único run
 
-- [] Mapear palavras chaves de cada boletim 
+- Mapear palavras chaves de cada boletim 
 
-- [] Manipular os dados para criação de uma planilha com as palavras mapeadas 
+- Manipular os dados para criação de uma planilha com as palavras mapeadas 
 
-- [] Projetar uma estrutura de armazenamento de dados e máquinas virtuais para acompanhamento semanal 
+- Projetar uma estrutura de armazenamento de dados e máquinas virtuais para acompanhamento semanal 
 
-- [] Logging mais detalhado
+- Logging mais detalhado
 
-- [] Testes automatizados
+- Testes automatizados
 
-- [] Interface Web para facilitar uso por não-programadores
+- Interface Web para facilitar uso por não-programadores
 
 ## 📄 Licença
 Este projeto é livre para uso acadêmico e pessoa
