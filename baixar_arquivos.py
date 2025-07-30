@@ -47,23 +47,23 @@ class BoletimScraper:
                 print("[i] Nenhum aviso de cookies encontrado")
 
             WebDriverWait(self.driver, 15).until(
-                EC.presence_of_all_elements_located((By.XPATH, "//a[contains(text(), 'Boletim de Serviço nº')]"))
+                EC.presence_of_all_elements_located((By.XPATH, "//a[contains(text(), 'Ata - Conselho de Administração nº')]"))
             )
 
-            boletins = self.driver.find_elements(By.XPATH, "//a[contains(text(), 'Boletim de Serviço nº')]")
-            links_boletins = [b.get_attribute("href") for b in boletins]
-            print(f"[i] Encontrados {len(links_boletins)} boletins")
+            atas = self.driver.find_elements(By.XPATH, "//a[contains(text(), 'Ata - Conselho de Administração nº')]")
+            links_atas = [b.get_attribute("href") for b in atas]
+            print(f"[i] Encontradas {len(links_atas)} atas")
 
-            for link in tqdm(links_boletins, desc="Boletins"):
-                self._baixar_pdf_do_boletim(link)
+            for link in tqdm(links_atas, desc="Atas"):
+                self._baixar_pdf_das_atas(link)
 
         finally:
             self.driver.quit()
-            print("\n✅ Todos os boletins foram processados.")
+            print("\n✅ Todos as atas foram processadas.")
 
-    def _baixar_pdf_do_boletim(self, link_boletim):
+    def _baixar_pdf_das_atas(self, link_atas):
         try:
-            self.driver.get(link_boletim)
+            self.driver.get(link_atas)
 
             WebDriverWait(self.driver, 15).until(
                 EC.presence_of_element_located((By.XPATH, "//a[contains(@href, '@@download/file')]"))
@@ -83,9 +83,9 @@ class BoletimScraper:
             self._aguardar_download(nome_arquivo)
 
         except TimeoutException:
-            print(f"[!] Timeout ao acessar boletim: {link_boletim}")
+            print(f"[!] Timeout ao acessar ata: {link_atas}")
         except Exception as e:
-            print(f"[!] Erro ao processar boletim {link_boletim}: {e}")
+            print(f"[!] Erro ao processar ata {link_atas}: {e}")
         
     def _aguardar_download(self, nome_arquivo, timeout=30):
         """Espera o Chrome terminar o download do arquivo .crdownload"""
@@ -103,8 +103,8 @@ class BoletimScraper:
 
 if __name__ == "__main__":
     scraper = BoletimScraper(
-        url_ano="https://www.gov.br/ebserh/pt-br/acesso-a-informacao/boletim-de-servico/sede/2016?b_start:int=30",
-        pasta_destino="boletins/2016"
+        url_ano="https://www.gov.br/ebserh/pt-br/governanca/conselhos/conselho-de-administracao/atas-do-conselho-de-administracao/2025?b_start:int=0",
+        pasta_destino="2025"
     )
     scraper.iniciar()
 
