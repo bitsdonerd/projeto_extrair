@@ -103,8 +103,10 @@ class BoletimScraper:
 
 if __name__ == "__main__":
     scraper = BoletimScraper(
-        url_ano="https://www.gov.br/ebserh/pt-br/acesso-a-informacao/boletim-de-servico/sede/2016?b_start:int=30",
-        pasta_destino="boletins/2016"
+        url_ano="https://www.gov.br/ebserh/pt-br/acesso-a-informacao/boletim-de-servico/sede/2023?b_start:int=120",
+        pasta_destino="boletins/2023"
+        
     )
     scraper.iniciar()
 
+ 
